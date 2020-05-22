@@ -1,0 +1,37 @@
+.normal {
+  height: 100%;
+  width: 100%;
+  margin-top: 0;
+  padding: 0;
+  position: relative;
+}
+
+.viewDiv {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  z-index: 1;
+}
+
+.toggle {
+  position: absolute;
+  bottom: 30px;
+  left: 15px;
+  padding: 10px;
+  background: white;
+  color: #333;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 2px 2px #999999;
+  z-index: 2;
+}
+
+.toggle > button {
+  margin-right: 10px;
+}
+
+.layerList {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}

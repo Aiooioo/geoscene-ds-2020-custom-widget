@@ -1,0 +1,159 @@
+:global {
+  @keyframes looping-progress-bar-ani {
+    0% {
+      left: 0%;
+      width: 0%;
+    }
+
+    20% {
+      left: 0%;
+      width: 20%;
+    }
+
+    80% {
+      left: 80%;
+      width: 20%;
+    }
+
+    100% {
+      left: 100%;
+      width: 0%;
+    }
+  }
+}
+
+.legend {
+  width: 300px;
+  color: #333333;
+  background-color: white;
+  border: 1px solid #999999;
+  padding: 6px 7px;
+  font-size: 14px;
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0 0 2px 2px #999999;
+
+  box-sizing: border-box;
+  line-height: 1.3em;
+
+  pointer-events: auto;
+
+  .noop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+  }
+  .itemContainer {
+    border-left: 3px solid transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 12px 7px 12px 20px;
+    transition: border-color 250ms ease-in-out;
+  }
+  .itemContainer .label {
+    margin: 0 7px;
+  }
+  .list {
+    list-style: none;
+    margin: 0 0 0 15px;
+    padding: 0;
+  }
+  .listRoot {
+    margin: 0;
+  }
+  .item {
+    background-color: transparent;
+    border: 1px solid rgba(110, 110, 110, 0.3);
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    margin: 3px 0;
+    padding: 0;
+    &:hover,
+    &:focus {
+      border-color: #3285ff;
+    }
+    &[class^='esri-icon'] {
+      padding-right: 2.8px;
+    }
+  }
+  .label {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;
+    &[role='checkbox']:hover,
+    &[role='radio']:hover {
+      cursor: pointer;
+    }
+  }
+  .itemChildren {
+    padding-bottom: 6px;
+  }
+  .itemSelectable .itemContainer {
+    cursor: pointer;
+  }
+  .itemSelectable .itemContainer:hover {
+    border-left-color: rgba(110, 110, 110, 0.3);
+  }
+  .childToggle {
+    color: #3285ff;
+    width: 15px;
+    cursor: pointer;
+    & [class*='esri-icon'] {
+      line-height: 1.2em;
+    }
+
+    & .childOpened,
+    & .childClosed_RTL,
+    .itemChildToggleOpen .childClosed {
+      display: none;
+    }
+
+    .itemChildToggleOpen .childOpened {
+      display: block;
+    }
+  }
+  .title {
+    //flex: 1;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 1.3em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    transition: color 125ms ease-in-out;
+  }
+  .toggleVisible {
+    padding: 0 3px;
+    cursor: pointer;
+    color: #3285ff;
+  }
+  .itemUpdating:before,
+  .itemUpdating:after {
+    content: '';
+    opacity: 1;
+    position: absolute;
+    height: 2px;
+    top: 0;
+    transition: opacity 500ms ease-in-out;
+  }
+  .itemUpdating:before {
+    background-color: rgba(110, 110, 110, 0.3);
+    width: 100%;
+    z-index: 0;
+  }
+  .itemUpdating:after {
+    background-color: #6e6e6e;
+    width: 20%;
+    z-index: 0;
+    animation: looping-progress-bar-ani 1500ms linear infinite;
+  }
+  .cActionsIcon {
+    color: #3285ff;
+  }
+  .cActionsMenu {
+  }
+}
